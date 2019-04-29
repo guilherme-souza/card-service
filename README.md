@@ -45,6 +45,15 @@ O endpoint para **saques** é uma implementação de um *WebSocket*. Na raíz do
 Para executar o teste basta abrir o arquivo `index.html`. Na página há um botão para fazer a conexão com o **socket** para saques. 
 Após clicar em conectar, há três campos para adicionar a ação, o valor para saque e número do cartão e enviar para o servidor.
 A resposta será exibida em uma tabela abaixo dos campos.
+Caso prefira é possível conectar ao web socket no endereço: http://localhost:8080/withdraw-websocket registrando um *subscribe* no endereço: /topic/result e conectando com a aplicação pelo endpoint: /app/withdraw.
+Os dados devem ser passados para o socket no seguinte formato *json*:
+```
+{
+    'action': 'withdraw',
+    'cardNumber': '9876543210',
+    'amount': '100'
+} 
+```
 
 O endpoint para os dados de **extrato** é uma implementação de um *RestController* que pode ser acionado no endereço: http://localhost:8080/statements/1234567890 onde 1234567890 é o número do cartão.
 
